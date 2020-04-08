@@ -1,10 +1,14 @@
 package id.andifauzy.beautifulnusantara;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,5 +23,17 @@ public class MainActivity extends AppCompatActivity {
         viewDestination.setLayoutManager(new LinearLayoutManager(this));
         DestinationAdapter destinationAdapter = new DestinationAdapter();
         viewDestination.setAdapter(destinationAdapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.profile, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        return true;
     }
 }
