@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/location"
         android:layout_marginRight="16dp"
-        android:layout_toLeftOf="@id/photo"
+        android:layout_toLeftOf="@id/avatar"
         android:maxLines="3"
         android:text="Tambang Batu Bara Ombilin adalah tambang batu bara di Kota Sawahlunto, tepatnya di lembah sempit di sepanjang Pegunungan Bukit Barisan, Sumatra Barat, Indonesia. Letaknya sekitar 70 kilometer dari timur laut Kota Padang, ibu kota provinsi. "
         android:textAlignment="viewStart"
@@ -47,7 +47,7 @@
         android:textStyle="bold" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/photo"
+        android:id="@+id/avatar"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_alignParentEnd="true"

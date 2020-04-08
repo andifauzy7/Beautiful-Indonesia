@@ -53,7 +53,7 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
             nameDestination = itemView.findViewById(R.id.nama);
             lokasiDestination = itemView.findViewById(R.id.lokasi);
             descDestination = itemView.findViewById(R.id.desc);
-            photo = itemView.findViewById(R.id.photo);
+            photo = itemView.findViewById(R.id.avatar);
         }
     }
 }
