@@ -16,6 +16,14 @@ import java.util.ArrayList;
 
 public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.ListViewHolder> {
     private ArrayList<Destination> list = new ArrayList<>();
+    private OnItemClickCallback onItemClickCallback;
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
+    }
+
+    public interface OnItemClickCallback {
+        void onItemClicked(Destination data);
+    }
 
     {
         list = DestinationData.getData();
@@ -29,7 +37,7 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ListViewHolder holder, int position) {
         Destination destination = list.get(position);
         Glide.with(holder.itemView.getContext())
                 .load(destination.getPhotoDestination())
@@ -38,6 +46,13 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
         holder.nameDestination.setText(destination.getNamaDestination());
         holder.lokasiDestination.setText(destination.getNamaKota() + ", " + destination.getNamaProvinsi());
         holder.descDestination.setText(destination.getDescDestination());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClickCallback.onItemClicked(list.get(holder.getAdapterPosition()));
+            }
+        });
     }
 
     @Override

@@ -25,7 +25,27 @@ public class MainActivity extends AppCompatActivity {
         viewDestination.setLayoutManager(new LinearLayoutManager(this));
         DestinationAdapter destinationAdapter = new DestinationAdapter();
         viewDestination.setAdapter(destinationAdapter);
+
+        destinationAdapter.setOnItemClickCallback(new DestinationAdapter.OnItemClickCallback(){
+            @Override
+            public void onItemClicked(Destination data) {
+                selectedDestination(data);
+            }
+        });
     }
+
+    private void selectedDestination(Destination destination){
+        Toast.makeText(this, "Tapped " + destination.getNamaDestination(), Toast.LENGTH_LONG).show();
+        Intent makeIntent = new Intent(MainActivity.this, detail.class);
+
+        makeIntent.putExtra("NAME", destination.getNamaDestination());
+        makeIntent.putExtra("LOCATION", destination.getNamaKota() + ", " + destination.getNamaProvinsi());
+        makeIntent.putExtra("DESC1", destination.getDescDestination());
+        makeIntent.putExtra("DESC2", destination.getDescDetailDestination());
+        makeIntent.putExtra("PHOTO", destination.getPhotoDestination());
+        makeIntent.putExtra("RATING", destination.getRatingDestination());
+        startActivity(makeIntent);
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
